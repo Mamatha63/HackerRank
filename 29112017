@@ -26,3 +26,34 @@ public class Solution {
 
     }   
 }
+//Sum VS XOR
+package org.capg.hacker.pratice;
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class SumXOR {
+
+    static long solve(long n) {
+        // Complete this function
+    	 long count = 0; 
+    	         for(long i = 0; i<=n;i++){ 
+    	        	// System.out.println(n+i);
+    	        	// System.out.println(n^i);
+    	             if((n+i) == (n^i)){ 
+    	                 count ++; 
+    	              } 
+    	          } 
+    	          return count; 
+
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long n = in.nextLong();
+        long result = solve(n);
+        System.out.println(result);
+    }
+}
