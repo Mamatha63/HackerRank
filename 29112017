@@ -57,3 +57,101 @@ public class SumXOR {
         System.out.println(result);
     }
 }
+//Missing Numbers
+package org.capg.hacker.pratice;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class MissingNumbers2 {
+
+	public static int[] findMissing(int[] a, int n,int[] b, int m){ 
+		          
+		         int[] missing = new int[m];  
+		         int [] result = new int[m-n];  
+		         if(n-m!=0 ){         
+		         HashMap<Integer, Integer> mapA = new HashMap<Integer, Integer>(); 
+		         HashMap<Integer, Integer> mapB = new HashMap<Integer, Integer>(); 
+		         for (int i : a) {             
+		             if(mapA.containsKey(i)) 
+		             {     
+		                 mapA.put(i, mapA.get(i)+1); 
+		             } 
+		             else 
+		             {     
+		                 mapA.put(i, 1); 
+		             } 
+		         } 
+		             System.out.println(mapA); 
+		          
+		         for (int i : b) {             
+		             if(mapB.containsKey(i)) 
+		             {     
+		                 mapB.put(i, mapB.get(i)+1); 
+		             } 
+		             else 
+		             {     
+		                 mapB.put(i, 1); 
+		             } 
+		        } 
+		            System.out.println(mapB); 
+		          
+		          
+		         int i = 0;          
+		          for (Integer key: mapB.keySet()){ 
+		                 if (!mapB.get(key).equals(mapA.get(key))){ 
+		                     missing[i] = key; 
+		                     i++; 
+		                 } 
+		          }  
+		          
+		         int s = 0; 
+		         for(int k : missing){ 
+		             if(k>0){ 
+		                 result[s] = k; 
+		                 s++; 
+		            } 
+		             
+		         } 
+		         Arrays.sort(result); 
+		          
+		         } 
+		          
+		          
+		         return result; 
+		          
+		     } 
+		          
+		 
+		     public static void main(String[] args) { 
+		           
+		          
+		         Scanner s = new Scanner(System.in);         
+		        int n = s.nextInt(); 
+		         int a[] = new int[n];         
+		         for(int i = 0; i < n; i++) 
+		         { 
+		             a[i] = s.nextInt(); 
+		         } 
+		          
+		        int m = s.nextInt(); 
+		         int b[] = new int[m];         
+		         for(int i = 0; i < m; i++) 
+		         { 
+		             b[i] = s.nextInt(); 
+		         }         
+		           
+		         int [] result = new int[Math.abs(b.length-a.length)]; 
+		          
+		         result = findMissing(a,n,b,m); 
+		         for(int i: result)    { 
+		             System.out.print(i+" "); 
+		         } 
+		          
+		          
+		          
+		     } 
+		  
+}
+
